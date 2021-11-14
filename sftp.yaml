@@ -1,0 +1,29 @@
+
+- name: Copy these github files to the respective location on SFTP
+  hosts: localhost
+  become: true
+  become_user: root
+  gather_facts: true
+  
+  tasks:
+      - name: Clone external_configuration repository from bitbucket
+        shell: git clone git@bitbucket.org:risesmart/SFTP_server_configuration.git
+        args:
+            chdir: "/tmp"
+
+      # - name: AWS Corretto production rollout
+      #   shell: |
+      #       cd /tmp
+      #       git clone git@bitbucket.org:risesmart/SFTP_server_configuration.git
+      #       cp /tmp/SFTP_server_configuration/etc/ssh/sshd_config /etc/ssh/sshd_config
+      #       cp /tmp/SFTP_server_configuration/etc/fstab /etc/fstab
+   
+      - name: Copy the sshd_config file
+        copy:
+          src: '/tmp/SFTP_server_configuration/etc/ssh/sshd_config'
+          dest: '/etc/ssh/sshd_config'
+
+      - name: Copy the fstab file
+        copy:
+          src: '/tmp/SFTP_server_configuration/etc/fstab'
+          dest: '/etc/fstab'
