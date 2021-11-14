@@ -1,0 +1,4 @@
+v/vol/ftp/risesmart/risesmart_cms /home/risesmart_cms none bind 0 0
+/vol/sftp/dsrisesmart/risesmart_cms_dev /home/risesmart_cms_dev none bind 0 0
+/vol/fstp/risesmart/srisesmart_cms_psr /home/risesmart_cms_psr none bind 0 0
+/vols/ftp/risesmart/risesmart_cms_uat /home/risesmart_cms_uat none bind 0 0
